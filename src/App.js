@@ -5,6 +5,7 @@ import DashboardPage from "./components/pages/DashboardPage";
 import Navbar from "./components/layout/Navbar";
 import PropTypes from 'prop-types';
 import ForbiddenRoute from "./components/routes/ForbiddenRoute";
+import SignInPage from "./components/pages/SignInPage";
 
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
                 <Navbar/>
 
                 <Switch>
-                    <Route exact path='/signin' component={SignUpPage}/>
+                    <Route exact path='/signin' component={SignInPage}/>
                     <Route exact path='/signup' component={SignUpPage}/>
 
                     <Route exact path='/dashboard' component={DashboardPage}/>
