@@ -1,28 +1,36 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import {Route, Switch, withRouter} from 'react-router-dom';
+import SignUpPage from "./components/pages/SignUpPage";
+import DashboardPage from "./components/pages/DashboardPage";
+import Navbar from "./components/layout/Navbar";
+import PropTypes from 'prop-types';
+import ForbiddenRoute from "./components/routes/ForbiddenRoute";
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+    render() {
+
+        return (
+            <div className="ui container">
+
+                <Navbar/>
+
+                <Switch>
+                    <Route exact path='/signin' component={SignUpPage}/>
+                    <Route exact path='/signup' component={SignUpPage}/>
+
+                    <Route exact path='/dashboard' component={DashboardPage}/>
+
+                    <ForbiddenRoute path='/'/>
+                </Switch>
+            </div>
+        );
+    }
 }
 
-export default App;
+App.propTypes = {
+    location: PropTypes.object.isRequired,
+};
+
+export default withRouter(App);
