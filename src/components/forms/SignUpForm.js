@@ -8,7 +8,8 @@ class SignInForm extends Component {
     state = {
         data: {
             username: '',
-            password: ''
+            password: '',
+            email: '',
         },
         loading: false,
         errors: {}
@@ -46,6 +47,9 @@ class SignInForm extends Component {
             errors.password = 'Password cannot be empty.';
         if (!data.username)
             errors.username = 'Username cannot be empty.';
+        let email_validation_re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!email_validation_re.test(String(data.email).toLowerCase()))
+            errors.email = 'Invalid email.';
 
         return errors;
     };
@@ -91,8 +95,23 @@ class SignInForm extends Component {
                                 onChange={this.onChange}
                             />
                         </Form.Field>
+
+                        {errors.email && <InlineError text={errors.email}/>}
+                        <Form.Field required error={!!errors.email}>
+                            <Form.Input
+                                icon='mail'
+                                iconPosition='left'
+                                type="text"
+                                id="email"
+                                name="email"
+                                placeholder="brodin@swolehalla.com"
+                                value={data.email}
+                                onChange={this.onChange}
+                            />
+                        </Form.Field>
+
                         <div className="field">
-                            <Button fluid className="primary">Enter Swolehalla</Button>
+                            <Button fluid className="primary">Become a disciple</Button>
                         </div>
                     </Form>
                 </Grid.Column>

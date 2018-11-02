@@ -20,9 +20,7 @@ class App extends Component {
                 <Switch>
                     <Route exact path='/signin' component={SignInPage}/>
                     <Route exact path='/signup' component={SignUpPage}/>
-
                     <Route exact path='/dashboard' component={DashboardPage}/>
-
                     <ForbiddenRoute path='/'/>
                 </Switch>
             </div>
