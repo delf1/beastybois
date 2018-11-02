@@ -111,7 +111,7 @@ class SignInForm extends Component {
                         </Form.Field>
 
                         <div className="field">
-                            <Button fluid className="primary">Become a disciple</Button>
+                            <Button fluid className="primary">Become Brodin's disciple</Button>
                         </div>
                     </Form>
                 </Grid.Column>

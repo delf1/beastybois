@@ -5,7 +5,7 @@ class DashboardPage extends Component {
     render() {
         return (
             <div>
-                <h1>Dashboard page</h1>
+                <Header as='h1' textAlign='center'>Dashboard Page</Header>
             </div>
         );
     }
